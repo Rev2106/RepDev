@@ -124,7 +124,7 @@ public abstract class SymitarSession {
 			progress.setSelection(value);
 
 		if( text != null && str != null && !text.isDisposed())
-			text.setText(str.replace("\r", "\n"));
+			text.setText(str.replace("\r", ""/*"\n"*/));
 	}
 
 	public abstract RunRepgenResult runRepGen(String name, int queue, ProgressBar progress, Text text, PromptListener prompter);
