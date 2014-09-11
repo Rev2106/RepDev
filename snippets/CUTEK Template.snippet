@@ -1,0 +1,99 @@
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CUTEK Template</Title>
+      <Author>Eric Brady</Author>
+      <Shortcut>
+      </Shortcut>
+      <Description>A standard template for a repgen.</Description>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+          <ID>clientname</ID>
+          <Default>Client Name</Default>
+          <ToolTip>Name of client.</ToolTip>
+        </Literal>
+        <Literal xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+          <ID>date</ID>
+          <Default>mm/dd/yyyy</Default>
+          <ToolTip>The date.</ToolTip>
+        </Literal>
+        <Literal xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+          <ID>filename</ID>
+          <Default>Filename()</Default>
+          <ToolTip>The filename</ToolTip>
+        </Literal>
+        <Literal xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+          <ID>purpose</ID>
+          <Default>Short description of the purpose</Default>
+          <ToolTip />
+        </Literal>
+        <Literal xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+          <ID>username</ID>
+          <Default>Your Name</Default>
+          <ToolTip>Employee's name who created this.</ToolTip>
+        </Literal>
+        <Literal xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+          <ID>certs</ID>
+          <Default>CERTS Ticket Number</Default>
+          <ToolTip>Hm...</ToolTip>
+        </Literal>
+      </Declarations>
+      <Code Language="PowerOn"><![CDATA[[
+****************************************************************************************
+*****  Copyright 2014 CUTEK. All rights reserved.                                  *****
+*****                                                                              *****
+*****  This source code may not be reproduced, displayed, modified or distributed  *****
+*****  without the express prior written permission of the copyright holder.  For  *****
+*****  permission, contact sales@cutek.com.                                        *****
+****************************************************************************************
+
+ $clientname$: $filename$
+ Created by:   CUTEK, Inc. - $username$
+ Created on:   $date$
+ CUTEK Certs:  $certs$
+ 
+ $purpose$
+ 
+ Modified by: 
+ Modified on: 
+]
+
+TARGET=ACCOUNT
+
+DEFINE
+ 
+END [DEFINE]
+
+SETUP
+ 
+END [SETUP]
+
+SELECT
+ 
+END [SELECT]
+
+SORT
+ 
+END [SORT]
+
+PRINT TITLE=""
+ 
+END [PRINT]
+
+TOTAL
+ 
+END
+
+PROCEDURE ABC
+ 
+END [PROCEDURE]
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
