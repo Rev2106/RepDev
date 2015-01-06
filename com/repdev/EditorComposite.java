@@ -1226,12 +1226,17 @@ public class EditorComposite extends Composite implements TabTextEditorView {
 			gotoSection(selString);
 			return;
 		}
-		for( String key : incTokenCache.keySet()){
-			for(Token token : incTokenCache.get(key)){
-				if(matchTokenAndGoto(token, key, selString))
-					return;
+		try {  // EB - since I think the keySet is throwing an exception 
+			for( String key : incTokenCache.keySet()){
+				for(Token token : incTokenCache.get(key)){
+					if(matchTokenAndGoto(token, key, selString))
+						return;
+				}
 			}
+		} catch (java.util.ConcurrentModificationException e) {
+			System.out.println(e);
 		}
+		
 		for(Variable var : parser.getLvars()){
 			if(matchVarAndGoto(var, selString))
 				return;
@@ -1330,6 +1335,9 @@ public class EditorComposite extends Composite implements TabTextEditorView {
 					editor.lineHighlight();
 				} catch (IllegalArgumentException ex) {
 					// Just ignore it
+				} catch (NullPointerException ex) {
+					// Just ignore it
+					System.out.println("NullPointerException caught:"+ex);
 				}
 				editor.getStyledText().setFocus();
 			return true;
