@@ -294,6 +294,12 @@ public class DirectSymitarSession extends SymitarSession {
 			
 			Command current;
 			current = readNextCommand();
+			// Checks for Password Expiration warning.
+			if(current.getCommand().equals("MsgDlg")){
+				log("USER RESPONSE: " + current.getParameters().get("Text"));
+				write("\r0\r");
+				current = readNextCommand();
+			}
 			log("USER RESPONSE: " + current.getCommand());
 			// Checking for bad Teller ID/Password.
 			if (current.getCommand().equals("SymLogonInvalidUser")){
@@ -323,6 +329,7 @@ public class DirectSymitarSession extends SymitarSession {
 			
 			// Get SYM Date
 			{
+				// [0x07]39[0x0d]Misc~InfoType=BankingDate~MsgId=xxxxxxx
 				Command cmdGetDate=new Command();
 				cmdGetDate.setCommand("Misc");
 				cmdGetDate.getParameters().put("InfoType","BankingDate");
@@ -334,6 +341,7 @@ public class DirectSymitarSession extends SymitarSession {
 			
 			// Get Console Number
 			{
+				// [0x07]41[0x0d]Misc~InfoType=ConsoleNumber~MsgId=xxxxxxx
 				Command cmdGetCon=new Command();
 				cmdGetCon.setCommand("Misc");
 				cmdGetCon.getParameters().put("InfoType","ConsoleNumber");
@@ -1310,7 +1318,8 @@ public class DirectSymitarSession extends SymitarSession {
 				log(cur);
 				
 				//Get the Sequence for the latest running one at this point, and return it so we can keep track of it
-				if( cur.getParameters().get("Action").equals("QueueEntry") ){
+				if(cur.getParameters().get("Action").equals("QueueEntry") &&
+				   !cur.getParameters().get("Stat").equals("Scheduled")  ){
 					int curTime = 0;
 					String timeStr = cur.getParameters().get("Time");
 					curTime = Integer.parseInt(timeStr.substring(timeStr.lastIndexOf(":")+1));
@@ -1726,7 +1735,7 @@ public class DirectSymitarSession extends SymitarSession {
 	                  "Release: " + symRev + "\n"+
 	                  "Console: " + consoleNum + "\n"+
 	                  "Username: " + aixUsername + "\n"+
-	                  "TellerID: " + userID.substring(0,3) + "\n";
+	                  "TellerID: " + userNum + "\n";
 		
 		return str;
 	}
