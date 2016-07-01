@@ -261,10 +261,19 @@ public class SyntaxHighlighter implements ExtendedModifyListener, LineStyleListe
 		else if (RepgenParser.getSpecialvars().contains(tok.getStr()))
 			range = VARIABLES.getRange(tok.getStart(), tok.length());
 		for (int i = 0; i < parser.getLvars().size(); i++){
-			Variable var = parser.getLvars().get(i);
-
-			if (var.getName().equals(tok.getStr()))
-				isVar = true;
+			Variable var=null;
+			try {
+				var = parser.getLvars().get(i);
+			} catch (java.lang.IndexOutOfBoundsException e) {
+				System.out.println(e);
+			}
+            try {
+            	if (var.getName().equals(tok.getStr()))
+            		isVar = true;
+            } catch (java.lang.NullPointerException e) {
+            	System.out.println(e);
+            }
+            
 		}
 
 		if (range == null && isVar)

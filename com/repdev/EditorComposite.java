@@ -1255,11 +1255,15 @@ public class EditorComposite extends Composite implements TabTextEditorView {
 						gotoSection(selString);
 						return;
 					}
-					for( String key2 : incTokenCache.keySet()){
-						for(Token token : incTokenCache.get(key2)){
-							if(matchTokenAndGoto(token, key2, selString))
-								return;
+					try {  // EB - since I think the keySet is throwing an exception
+						for( String key2 : incTokenCache.keySet()){
+							for(Token token : incTokenCache.get(key2)){
+								if(matchTokenAndGoto(token, key2, selString))
+									return;
+							}
 						}
+					} catch (java.util.ConcurrentModificationException e) {
+						System.out.println(e);
 					}
 					for(Variable var : ec.parser.getLvars()){
 						if(matchVarAndGoto(var, selString))
@@ -1428,7 +1432,12 @@ public class EditorComposite extends Composite implements TabTextEditorView {
 		if(!section.equals("") && sec.exist(section)){
 			txt.setCaretOffset(txt.getText().length());
 			txt.showSelection();
-			txt.setCaretOffset(sec.getPos(section));
+			try {
+				txt.setCaretOffset(sec.getPos(section));
+			} catch(IllegalArgumentException iae) {
+				iae.printStackTrace();
+				System.out.println(sec.getPos(section));
+			}
 			handleCaretChange();
 			// Drop Navigation Position
 			RepDevMain.mainShell.addToNavHistory(file, txt.getLineAtOffset(txt.getCaretOffset()));
