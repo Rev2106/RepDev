@@ -1,4 +1,4 @@
-*.class
+#*.class
 
 
 #ignore thumbnails created by windows

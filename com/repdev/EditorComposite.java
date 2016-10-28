@@ -1904,7 +1904,7 @@ public class EditorComposite extends Composite implements TabTextEditorView {
 
 		//IF we need to update, only call this once
 		for( Token tok : redrawTokens )
-			txt.redrawRange(tok.getStart(),tok.getStr().length(),false);
+			try{txt.redrawRange(tok.getStart(),tok.getStr().length(),false);}catch(Exception e){}
 	}
 
 	private void clearSnippetMode() {

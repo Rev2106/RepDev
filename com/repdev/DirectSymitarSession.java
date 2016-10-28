@@ -1612,7 +1612,7 @@ public class DirectSymitarSession extends SymitarSession {
 		try {
 			while( (cur = readNextCommand()).getParameters().get("Done") == null ){
 				log(cur);
-				if (cur.getParameters().get("Status").contains("Invalid Query"))
+				if (cur.getParameters().get("Status")!=null && cur.getParameters().get("Status").contains("Invalid Query"))
 					break;
 				if( cur.getParameters().get("Sequence") != null ){
 					try {
