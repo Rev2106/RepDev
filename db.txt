@@ -133,6 +133,12 @@
 	COUNTLIMIT:3|Limit 3 Count Limit|67|5|9999
 	COUNTLIMIT:4|Limit 4 Count Limit|67|5|9999
 	COUNTLIMIT:5|Limit 5 Count Limit|67|5|9999
+	COUNTLIMIT:6|Limit 6 Count Limit|67|5|9999
+	LIMITCOUNT:1|Limit 1 Count|68|5|9999
+	LIMITCOUNT:2|Limit 2 Count|68|5|9999
+	LIMITCOUNT:3|Limit 3 Count|68|5|9999
+	LIMITCOUNT:4|Limit 4 Count|68|5|9999
+	LIMITCOUNT:5|Limit 5 Count|68|5|9999
 	LIMITCOUNT:6|Limit 6 Count|68|5|9999
 	LIMIT:1|Limit 1|69|7|null
 	LIMIT:2|Limit 2|69|7|null
@@ -527,21 +533,7 @@
 			ENABLEFM|Enable FM|9|5|1
 			QUALIFIER|Qualifier|10|0|3
 			RECORDCHANGEDATE|Record Change Date|11|3|null
-<<<<<<< HEAD
-		***|SERVICE CREDENTIAL|Service Credential
-			USERID1|User ID 01|1|0|40
-			USERID2|User ID 02|2|0|40
-			CONSUMERID1|Consumer ID 01|3|0|40
-			CONSUMERID2|Consumer ID 02|4|0|40
-			EXPIREDATE|Expire Date|5|3|null
-			CREDENTIAL1|Credential 01|6|0|40
-			CREDENTIAL2|Credential 02|7|0|40
-			CREDENTIAL3|Credential 03|8|0|40
-			CREDENTIAL4|Credential 04|9|0|40
-			LOCATOR|Locator|10|4|null
-=======
 			EXTLOANACCOUNT|External Loan Account Number|12|0|20
->>>>>>> refs/remotes/jakepoz/master
 	***|TRACKING|Tracking
 		TYPE|Tracking Type|1|5|99
 		ID|ID|2|0|2
@@ -2023,62 +2015,6 @@
 			RECORDCHANGEDATE|Record Change Date|5|3|null
 	***|IRS|IRS
 		MAXCONTRIBUTION|Max Contribution|1|7|null
-<<<<<<< HEAD
-		CONTRLASTYEAR:1|Contr LY for LY|2|7|null
-		CONTRLASTYEAR:2|Contr LY for LY-1|2|7|null
-		CONTRLASTYEAR:3|Contr LY Rollover|2|7|null
-		CONTRLASTYEAR:4|Contr LY Transfer|2|7|null
-		CONTRLASTYEAR:5|Contr LY Roth Conv/MSA|2|7|null
-		CONTRLASTYEAR:6|Contr LY Rechar/MSA|2|7|null
-		CONTRLASTYEAR:7|Contr LY Unspecif|2|7|null
-		CONTRLASTYEAR:8|Contr LY Unspecif|2|7|null
-		DISTRLASTYEAR:1|Distr LY No Excptn|3|7|null
-		DISTRLASTYEAR:2|Distr LY Exception|3|7|null
-		DISTRLASTYEAR:3|Distr LY Disability|3|7|null
-		DISTRLASTYEAR:4|Distr LY Death|3|7|null
-		DISTRLASTYEAR:5|Distr LY Prohib Trn|3|7|null
-		DISTRLASTYEAR:6|Distr LY Unspecif|3|7|null
-		DISTRLASTYEAR:7|Distr LY Normal|3|7|null
-		DISTRLASTYEAR:8|Distr LY Excess LY|3|7|null
-		DISTRLASTYEAR:9|Distr LY Excess 12|3|7|null
-		DISTRLASTYEAR:10|Distr LY Unspecif|3|7|null
-		DISTRLASTYEAR:11|Distr LY Unspecif|3|7|null
-		DISTRLASTYEAR:12|Distr LY Unspecif|3|7|null
-		DISTRLASTYEAR:13|Distr LY Unspecif|3|7|null
-		DISTRLASTYEAR:14|Distr LY Transfer|3|7|null
-		DISTRLASTYEAR:15|Distr LY Fee|3|7|null
-		DISTRLASTYEAR:16|Distr LY Ex Earn LY|3|7|null
-		DISTRLASTYEAR:17|Distr LY Ex Earn 12|3|7|null
-		CONTRTHISYEAR:1|Contr TY for TY|4|7|null
-		CONTRTHISYEAR:2|Contr TY for LY|4|7|null
-		CONTRTHISYEAR:3|Contr TY Rollover|4|7|null
-		CONTRTHISYEAR:4|Contr TY Transfer|4|7|null
-		CONTRTHISYEAR:5|Contr TY Roth Conv/MSA|4|7|null
-		CONTRTHISYEAR:6|Contr TY Rechar/MSA|4|7|null
-		CONTRTHISYEAR:7|Contr TY Unspecif|4|7|null
-		CONTRTHISYEAR:8|Contr TY Unspecif|4|7|null
-		DISTRTHISYEAR:1|Distr TY No Excptn|5|7|null
-		DISTRTHISYEAR:2|Distr TY Exception|5|7|null
-		DISTRTHISYEAR:3|Distr TY Disability|5|7|null
-		DISTRTHISYEAR:4|Distr TY Death|5|7|null
-		DISTRTHISYEAR:5|Distr TY Prohib Trn|5|7|null
-		DISTRTHISYEAR:6|Distr TY Unspecif|5|7|null
-		DISTRTHISYEAR:7|Distr TY Normal|5|7|null
-		DISTRTHISYEAR:8|Distr TY Excess TY|5|7|null
-		DISTRTHISYEAR:9|Distr TY Excess LY|5|7|null
-		DISTRTHISYEAR:10|Distr TY Unspecif|5|7|null
-		DISTRTHISYEAR:11|Distr TY Unspecif|5|7|null
-		DISTRTHISYEAR:12|Distr TY Unspecif|5|7|null
-		DISTRTHISYEAR:13|Distr TY Unspecif|5|7|null
-		DISTRTHISYEAR:14|Distr TY Transfer|5|7|null
-		DISTRTHISYEAR:15|Distr TY Fee|5|7|null
-		DISTRTHISYEAR:16|Distr TY Ex Earn TY|5|7|null
-		DISTRTHISYEAR:17|Distr TY Ex Earn LY|5|7|null
-		SSN|Taxpayer ID|6|0|9
-		IRSCODE|IRS Code|7|5|15
-		CONTRIBUTIONYEAR|Contribution Year|8|5|1
-		FAIRMARKETVALUELASTYEAR|Fair Mkt Value LY|9|7|null
-=======
 		CONTRLASTYEAR:1|Contr 16 for 16|2|7|null
 		CONTRLASTYEAR:2|Contr 16 for 15|2|7|null
 		CONTRLASTYEAR:3|Contr 16 Rollover|2|7|null
@@ -2133,18 +2069,13 @@
 		IRSCODE|IRS Code|7|5|15
 		CONTRIBUTIONYEAR|Contribution Year|8|5|1
 		FAIRMARKETVALUELASTYEAR|Fair Mkt Value 16|9|7|null
->>>>>>> refs/remotes/jakepoz/master
 		OPENDATE|Open Date|10|3|null
 		MSAHOLDERCODE|MSA Holder Code|11|5|2
 		IRSPLAN|IRS Plan|12|5|99
 		FAIRMARKETVALUEDEATH|Fair Mkt Value Death|13|7|null
 		LOCATOR|Locator|14|4|null
 		RMDTABLEOPTION|RMD Table Option|15|5|2
-<<<<<<< HEAD
-		IRARMD|Req Min Distrib TY|16|7|null
-=======
 		IRARMD|Req Min Distrib 17|16|7|null
->>>>>>> refs/remotes/jakepoz/master
 		IRSHOLDERBIRTHDATE|IRS Holder Birth Date|17|3|null
 		IRSHOLDERSPOUSEBIRTHDATE|IRS Holder Spouse Birth Date|18|3|null
 		RECORDCHANGEDATE|Record Change Date|19|3|null
@@ -2980,9 +2911,6 @@
 		AMORTIZATIONTERM|Amortization Term|385|5|600
 		PREPAYMENTPENALTYEXPDATE|Prepayment Penalty Exp Date|386|3|null
 		RATEROUNDINGMETHOD|Rate Rounding Method|387|5|2
-<<<<<<< HEAD
-		ROUNDRATETO|Rate Change Cycle Months|388|2|null
-=======
 		ROUNDRATETO|Round Rate To|388|2|null
 		PROPERTYADDRESSTYPE|Property Address Type|389|5|2
 		PROPERTYJURISDICTION|Property Jurisdiction|390|0|40
@@ -3009,7 +2937,6 @@
 		EARLYINTERVNTNSTMTMSGCODE|Early Intrvntn Stmt Msg Code|411|5|9999
 		CONSECUTIVEDQCOUNT|Consecutive Delinquency Count|412|5|9999
 		STMTNOTESTARTDATE|Statement Note Start Date|413|3|null
->>>>>>> refs/remotes/jakepoz/master
 		AVAILABLECREDIT|Available Credit|800|7|null
 		INTERESTDUE|Interest Due|801|7|null
 		LATECHARGEDUE|Late Charge Due|802|7|null
@@ -8824,31 +8751,6 @@
 			USERRATE19|User Rate   19|129|2|null
 			USERRATE20|User Rate   20|130|2|null
 			RECORDCHANGEDATE|Record Change Date|131|3|null
-		***|RESERVEPLAN TRANSACTION|Reserve Plan Transaction
-			DEALERNUMBER|Dealer Number|1|0|10
-			COMMENTFLAG|Comment Flag|2|5|1
-			CONSOLENUMBER|Console Number|3|5|9999
-			EFFECTIVEDATE|Effective Date|4|3|null
-			SEQUENCENUMBER|Sequence Number|5|4|null
-			POSTDATE|Post Date|6|3|null
-			POSTTIME|Post Time|7|5|2359
-			USERNUMBER|User Number|8|5|9999
-			USEROVERRIDE|User Override|9|5|9999
-			BATCHSEQUENCE|Batch Sequence|10|4|null
-			BRANCH|Branch|11|5|9999
-			MEMBERBRANCH|Member Branch|12|0|4
-			ACCOUNTNUMBER|Account Number|13|0|10
-			PLANID|Reserve Plan ID|14|0|4
-			ACTIONCODE|Action Code|15|0|1
-			SOURCECODE|Source Code|16|0|1
-			DESCRIPTION|Description|17|0|16
-			ACTIVITYDATE|Activity Date|18|3|null
-			BALANCECHANGE|Balance Change|19|7|null
-			NEWBALANCE|New Balance|20|7|null
-			COMMENT|Comment|21|0|42
-			PARTICIPANTTYPE|Participant Type|22|5|1
-			LOANID|Loan ID|23|0|4
-			ADJUSTMENTCODE|Adjustment Code|24|5|1
 	***|DEALER FMHISTORY|Dealer FM History
 		ACCOUNTNUMBER|Account Number|2|0|17
 		IDTYPE|ID Type|3|5|12
@@ -8882,6 +8784,31 @@
 		CONFIRMATIONSEQ|Confirmation Sequence|31|4|null
 		RECORDNAME|Record Name|800|1|40
 		FIELDNAME|Field Name|801|1|40
+		***|RESERVEPLAN TRANSACTION|Reserve Plan Transaction
+			DEALERNUMBER|Dealer Number|1|0|10
+			COMMENTFLAG|Comment Flag|2|5|1
+			CONSOLENUMBER|Console Number|3|5|9999
+			EFFECTIVEDATE|Effective Date|4|3|null
+			SEQUENCENUMBER|Sequence Number|5|4|null
+			POSTDATE|Post Date|6|3|null
+			POSTTIME|Post Time|7|5|2359
+			USERNUMBER|User Number|8|5|9999
+			USEROVERRIDE|User Override|9|5|9999
+			BATCHSEQUENCE|Batch Sequence|10|4|null
+			BRANCH|Branch|11|5|9999
+			MEMBERBRANCH|Member Branch|12|0|4
+			ACCOUNTNUMBER|Account Number|13|0|10
+			PLANID|Reserve Plan ID|14|0|4
+			ACTIONCODE|Action Code|15|0|1
+			SOURCECODE|Source Code|16|0|1
+			DESCRIPTION|Description|17|0|16
+			ACTIVITYDATE|Activity Date|18|3|null
+			BALANCECHANGE|Balance Change|19|7|null
+			NEWBALANCE|New Balance|20|7|null
+			COMMENT|Comment|21|0|42
+			PARTICIPANTTYPE|Participant Type|22|5|1
+			LOANID|Loan ID|23|0|4
+			ADJUSTMENTCODE|Adjustment Code|24|5|1
 ***|EXCPITEM|Exception Item
 	EXCPTYPE|Exception Type|1|5|9
 	EXCPITEMACCOUNT|Exception Item Account|2|0|10
@@ -8970,6 +8897,7 @@
 	OTHERIDTYPE|Other ID Type|59|5|1
 	OTHERID|Other ID|60|0|2
 	ORIGINATORSTATUS|Originator Status|61|0|1
+	DEATHDATE|Death Date|62|3|null
 	POSTEXCPDESCR|Posting Exception Description|800|1|32
 	SUBTRANDESCR|Sub Tran Description|801|1|40
 	***|EXCPADDENDA|Exception Addenda
@@ -9079,11 +9007,7 @@
 	ACKDATE|Acknowledged Status Date|33|3|null
 	ACKERRORBYUSER|Ack w/Errors Status By|34|0|20
 	ACKERRORDATE|Ack w/Errors Status Date|35|3|null
-<<<<<<< HEAD
-	FILINGDATE|Date Filed|35|3|null
-=======
 	FILINGDATE|Date Filed|36|3|null
->>>>>>> refs/remotes/jakepoz/master
 	CASHINTOTAL|Total Cash In|44|7|null
 	CASHOUTTOTAL|Total Cash Out|45|7|null
 	RSNARMCARFLAG|Armored Car Service Rsn?|49|5|1
@@ -9777,28 +9701,6 @@
 	FORMW8ONFILE|Form W-8 On File|66|5|1
 	W8EXPIRATIONDATE|W-8 Expiration Date|67|3|null
 	FOREIGNTIN|Foreign TIN|68|0|22
-<<<<<<< HEAD
-	GIIN|GIIN|116|0|19
-	SUBSTANTIALOWNER|Substantial Owner|117|5|1
-	CHAPTER4STATUSCODE|Chapter 4 Status Code|118|0|2
-	PREFERREDCONTACTMETHOD|Preferred Contact Method|119|5|9
-	ACTIVEDUTY|Active Duty|120|5|2
-	ACTIVEDUTYVERIFICATIONDATE|Active Duty Verification Date|121|3|null
-	ACTIVEDUTYSTARTDATE|Active Duty Start Date|122|3|null
-	ACTIVEDUTYSEPARATIONDATE|Active Duty Separation Date|123|3|null
-	LOB|LOB Code|124|0|2
-	SHORTNAME|Short Name|800|0|16
-	LONGNAME|Long Name|801|1|40
-	LICENSE|License|802|0|20
-	LASTADDRCHGDATE|Address Change Date|803|3|null
-	CRNAMECHGDATE|Name Change Date|804|3|null
-	CRADDRCHGDATE|Credit Rpt Address Change Date|805|3|null
-	CRSSNCHGDATE|SSN Change Date|806|3|null
-	CURRMONTHPAYCHGDATE|Curr Mo Pay Last Updated|807|3|null
-	DBASHORTNAME|DBA Short Name|808|0|16
-	DBALONGNAME|DBA Long Name|809|1|40
-	PREFERREDCONTACT|Preferred Contact|810|1|40
-=======
 	GIIN|GIIN|69|0|19
 	SUBSTANTIALOWNER|Substantial Owner|70|5|1
 	CHAPTER4STATUSCODE|Chapter 4 Status Code|71|0|2
@@ -9814,7 +9716,6 @@
 	DBASHORTNAME|DBA Short Name|803|0|16
 	DBALONGNAME|DBA Long Name|804|1|40
 	PREFERREDCONTACT|Preferred Contact|805|1|40
->>>>>>> refs/remotes/jakepoz/master
 	***|MEMBERREC FMHISTORY|Member FM History
 		ACCOUNTNUMBER|Account Number|2|0|17
 		IDTYPE|ID Type|3|5|12
@@ -13300,7 +13201,7 @@
 	SECURITYCODE:396|Parameter FM Credit Report|15|5|1
 	SECURITYCODE:397|Parameter FM MemberConnect|15|5|1
 	SECURITYCODE:398|Parameter FM Disclosure|15|5|1
-	SECURITYCODE:399|Parameter FM Teller Fee|15|5|1
+	SECURITYCODE:399|Parameter FM Teller Gen Fee|15|5|1
 	SECURITYCODE:400|Parameter FM ATM|15|5|1
 	SECURITYCODE:401|Parameter FM Reg CC|15|5|1
 	SECURITYCODE:402|Parameter FM Interest Type|15|5|1
@@ -13611,7 +13512,7 @@
 	SECURITYCODE:707|Update AP Invoice|15|5|1
 	SECURITYCODE:708|Display AP Invoice Queue|15|5|1
 	SECURITYCODE:709|AP Scan Invoice|15|5|1
-	SECURITYCODE:710|AP OTG Viewer|15|5|1
+	SECURITYCODE:710|AP Image Retrieval|15|5|1
 	SECURITYCODE:711|AP View Invoice|15|5|1
 	SECURITYCODE:712|AP Revise Invoice|15|5|1
 	SECURITYCODE:713|AP Run Anticipated AP Reports|15|5|1
@@ -13648,7 +13549,7 @@
 	SECURITYCODE:744|Teller Tran Dispute Loan|15|5|1
 	SECURITYCODE:745|Teller Tran Dispute Share|15|5|1
 	SECURITYCODE:746|Parameter FM Int Rate Index|15|5|1
-	SECURITYCODE:747|Parameter FM App Work Flow Rep|15|5|1
+	SECURITYCODE:747|Parameter FM App Work Flow SFs|15|5|1
 	SECURITYCODE:748|App Work Flow Specfile 0|15|5|1
 	SECURITYCODE:749|App Work Flow Specfile 1|15|5|1
 	SECURITYCODE:750|App Work Flow Specfile 2|15|5|1
@@ -14441,8 +14342,6 @@
 	SECURITYCODE:1540|Loan Rate Change Creation|15|5|1
 	SECURITYCODE:1541|Loan Rate Change Revision|15|5|1
 	SECURITYCODE:1542|Loan Rate Change Deletion|15|5|1
-<<<<<<< HEAD
-=======
 	SECURITYCODE:1543|Host SymXchange Clear Totals|15|5|1
 	SECURITYCODE:1544|Host SymXchange Balancing|15|5|1
 	SECURITYCODE:1545|Host SymXchange Bal Report|15|5|1
@@ -14463,7 +14362,6 @@
 	SECURITYCODE:1560|Host Ext Loan Processg Offhost|15|5|1
 	SECURITYCODE:1561|Host Ext Loan Processg Status|15|5|1
 	SECURITYCODE:1562|Param FM Statement Messages|15|5|1
->>>>>>> refs/remotes/jakepoz/master
 	SECURITYAMOUNT:1|Check Received Limit|16|7|null
 	SECURITYAMOUNT:2|Disbursal Limit|16|7|null
 	SECURITYAMOUNT:3|General Ledger Limit|16|7|null
@@ -15934,12 +15832,6 @@
 	PREVIOUSPASSWORDHASH4:12|Previous Password Hash 4 (12)|67|0|40
 	PREVIOUSLOGONDATE|Previous Logon Date|68|3|null
 	PREVIOUSLOGONTIME|Previous Logon Time|69|5|2359
-<<<<<<< HEAD
-	ADUSERNAME1|Active Directory User Name 1|70|0|40
-	ADUSERNAME2|Active Directory User Name 2|71|0|40
-	ADUSERNAME3|Active Directory User Name 3|72|0|40
-	ADUSERNAME4|Active Directory User Name 4|73|0|40
-=======
 	SSODOMAINUSERSUB1|SSO Domain User Sub 1|70|0|40
 	SSODOMAINUSERSUB2|SSO Domain User Sub 2|71|0|40
 	SSODOMAINUSERSUB3|SSO Domain User Sub 3|72|0|40
@@ -15947,7 +15839,6 @@
 	CONFIGURATIONGROUP|Configuration Group|74|5|100
 	TEMPPASSWORDEXPIRATIONDATE|Temp Password Expiration Date|76|3|null
 	TEMPPASSWORDEXPIRATIONTIME|Temp Password Expiration Time|77|5|2359
->>>>>>> refs/remotes/jakepoz/master
 	***|ACTIVITY|Activity
 		USERNUMBER|User Number|1|5|9999
 		DATE|Activity Date|2|3|null
