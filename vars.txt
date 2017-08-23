@@ -1,12 +1,14 @@
+LIVEINSTCHECK|This function returns 1 in a NUMBER data type if the specfile is running in a live SYM institution.|NUMBER|1
 PREVSYSTEMDATE|The last SYSTEMDATE for the current sym|DATE|
 SYSACTUALDATE|Actual calendar date|DATE|
 SYSACTUALTIME|Actual clock time on the server|NUMBER|
 SYSCLIENTNUMBER|Client Number of the Credit Union|NUMBER|
 SYSCONSOLENUM|Console number of user running this repgen|NUMBER|
+SYSHOSTNAME|Host name of the server|CHARACTER|
 SYSSYMDIRECTORY|SYM Number|NUMBER|
 SYSTEMDATE|Current banking date|DATE|
 SYSMEMOMODE|Memo Mode|NUMBER|
-SYSUSERNUMBER|User number of current user|NUMBER|
+SYSUSERNUMBER|User number of current user|NUMBER|9999
 SYSWINDOWSLEVEL|Indicates windows level, 3=Windows, lower = console|NUMBER|3
 
 @AUDIODATATYPE|Determines the type of data to be input. See RD.AUDIO.DEF.|NUMBER|

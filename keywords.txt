@@ -78,6 +78,7 @@ LANDSCAPE|LANDSCAPE is one of the available printer orientation options when usi
 LASTCREATE|LASTCREATE is a special keyword you can use in batch specfile file maintenance to specify the Locator assigned to the last record created of the specified record type, or in the case of creating a new Account record, the last Account number created|ACCOUNT LASTCREATE
 LEFT|The LEFT print statement option instructs the Report Generator™ to align a value in the left-most position starting at the specified column number|COL=10 LEFT NUMBERVALUE
 LETTER|The LETTER division of a specfile contains the print instructions for a form letter or standard form|LETTER TITLE="Ken's Report"
+LIVEINSTCHECK|LIVEINSTCHECK is a special number literal of 1 if the current sym is "live" or 0 if it is not "live" |IF LIVEINSTCHECK=1 THEN
 LOAN|LOAN designates the Loan record in the Account file|LOAN:TYPE
 LOANAPP|LOANAPP designates the Application record in the Account file|TARGET=LOANAPP
 LOANPROJECTCALC|The LOANPROJECTCALC statement allows you to use the Report Generator™ to perform loan projection calculations equivalent to those produced using the Loan Projections function of the Projections work area and also produce the Loan Payoff inquiry equivalent to that produced from the Inquiries Into Member Accounts function of the Account Manager work area|LOANPROJECTCALC
@@ -104,7 +105,6 @@ PORTFOLIO|PORTFOLIO designates the Portfolio record in the Account file|TARGET=P
 PORTRAIT|PORTRAIT is one of the available printer orientation options when using the HPSETUP HP Laser Control command|PORTRAIT
 PREFERENCE|PREFERENCE designates the Preference record in the Account file|PREFERENCE:LANGUAGE=1
 PREFIX|PREFIX is a special keyword you can use in batch specfile file maintenance when you are using the CREATE command to create a new Account record|ACCOUNT NEXTACCOUNT PREFIX 31
-PREVSYSTEMDATE|PREVSYSTEMDATE is a special date literal that evaluates to the previous system date, which is the last system date before the current system posting date|YESTERDAY=PREVSYSTEMDATE
 PRINT|A print statement controls the horizontal placement of data in a report|PRINT "CODE MONKEY"
 PRINTCONTROL|The PRINTCONTROL statement prints a character expression to the laser printer without updating the column counter|PRINTCONTROL CTRLCHR(27)
 PROCEDURE|The PROCEDURE keyword defines a separate prepared set of instructions that the Report Generator™ can process more than once in the specfile|PROCEDURE BANGROCKS
