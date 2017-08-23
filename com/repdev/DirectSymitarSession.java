@@ -1619,10 +1619,15 @@ public class DirectSymitarSession extends SymitarSession {
 					}
 				}
 			}
+			// CLEAR the error message if there is one
+			if(in.ready()) {
+				cur = readNextCommand();
+				log(cur);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		Collections.sort(items);
 		
 		return items;
