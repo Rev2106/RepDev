@@ -52,8 +52,8 @@ public class RepDevMain {
 	public static final boolean DEVELOPER = false; //Set this flag to enable saving passwords, this makes it easy for developers to log in and check stuff quickly after making changes
 	public static final int VMAJOR = 1;
 	public static final int VMINOR = 6;
-	public static final int VFIX   = 10;
-	public static final String VSPECIAL = "EB Version"; // "special" string for release names, beta, etc
+	public static final int VFIX   = 11;
+	public static final String VSPECIAL = "EB Version"; // "special" string for release names, beta, 
 
 	public static final String VERSION = VMAJOR + "." + VMINOR + (VFIX>0?"."+VFIX:"") + (DEVELOPER ? "-dev" : "") + (!VSPECIAL.equals("")? " " + VSPECIAL : "");
 	public static final String NAMESTR = "RepDev v" + VERSION;
@@ -61,7 +61,7 @@ public class RepDevMain {
 
 	public static MainShell mainShell;
 	private static Display display;
-	public static Image smallAddImage, smallErrorsImage, smallFileImage, smallProjectImage, smallRemoveImage, smallRepGenImage, smallSymImage, smallTasksImage, smallActionSaveImage, smallFileAddImage, smallFileRemoveImage,
+	public static Image smallAddImage, smallErrorsImage, smallFileImage, smallProjectImage, smallRemoveImage, smallRepGenImage, smallSymImage, smallSymOnImage, smallTasksImage, smallActionSaveImage, smallFileAddImage, smallFileRemoveImage,
 	smallProjectAddImage, smallProjectRemoveImage, smallRunImage, smallSymAddImage, smallSymRemoveImage, smallDBFieldImage, smallDBRecordImage, smallVariableImage, smallImportImage, smallFileNewImage, smallFileOpenImage, smallDeleteImage,
 	smallOptionsImage, smallIndentLessImage, smallIndentMoreImage, smallCutImage, smallCopyImage, smallPasteImage, smallSelectAllImage, smallRedoImage, smallUndoImage, smallFindImage, smallFindReplaceImage, smallExitImage, smallRunFMImage,
 	smallWarningImage, smallReportsImage, smallPrintImage, smallFolderImage, smallFolderAddImage, smallFolderRemoveImage, smallActionSaveAsImage, smallProgramIcon, smallInstallImage, smallCompareImage, smallSurroundImage, smallSurroundPrint,
@@ -141,6 +141,7 @@ public class RepDevMain {
 		smallRepGenDemandImage = new Image(display, IMAGE_DIR + "small-repgen-demand.png");
 		smallRunImage = new Image(display, IMAGE_DIR + "small-run.png");
 		smallSymImage = new Image(display, IMAGE_DIR + "small-sym.png");
+		smallSymOnImage = new Image(display, IMAGE_DIR + "small-sym-on.png");
 		smallTasksImage = new Image(display, IMAGE_DIR + "small-tasks.png");
 		smallSymAddImage = new Image(display, IMAGE_DIR + "small-sym-add.png");
 		smallSymRemoveImage = new Image(display, IMAGE_DIR + "small-sym-remove.png");

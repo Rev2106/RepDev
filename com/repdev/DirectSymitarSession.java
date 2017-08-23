@@ -145,7 +145,8 @@ public class DirectSymitarSession extends SymitarSession {
 
 		if(port == 22){
 	    	useSSH = true;
-	    	System.out.println("*** Using SSH ***\nIf this is the last message you see, you may need to cache your SSH Key.\n");
+		System.out.println("*** Using SSH ***\nIf this is the last message you see, you may need to cache your SSH Key.");
+		System.out.println("For help, see the Wiki Page at https://github.com/jakepoz/RepDev/wiki/Using-SSH\n");
 	    }
 		try {
 			if(useSSH){
@@ -192,20 +193,32 @@ public class DirectSymitarSession extends SymitarSession {
 				if (line.indexOf("invalid login") != -1 || line.indexOf("password:") != -1){
 					disconnect();
 					return SessionError.AIX_LOGIN_WRONG;
+				} else if (line.contains("$ ")) {
+					out.print(line);
+					out.print("It appears we weren't able to bypass text mode.\nYou may have a slow connection.\nOr this console is not setup as a 'Windows PC' in SYMOP.");
+					disconnect();
+					return SessionError.NOT_WINDOWSLEVEL_3;
+				} else if (line.indexOf("[c") == -1) {
+					out.print(line);
+					out.print("Unsure what happened here.  Check logs!");
+					disconnect();
+					return SessionError.IO_ERROR;
 				}
 			}
 
 			write("WINDOWSLEVEL=3\n");
 			
-			temp = readUntil( "$ ", "SymStart~Global", "Selection :", "no longer supported!");
-			if(temp.contains("no longer supported!")){
+			temp = readUntil("$ ", "SymStart~Global", "Selection :", "no longer supported!","Logins not allowed from host: ");
+			System.out.println(temp);
+			if (temp.contains("no longer supported!")) {
 				disconnect();
 				System.out.println(temp);
 				return SessionError.NOT_WINDOWSLEVEL_3;
-			}
-			System.out.println(temp);
-			
-			if (temp.contains("Selection :")){ //This is for EASE Menu
+			} else if (temp.contains("Logins not allowed")) {
+				out.print("You cannot log in from this IP. Verify this PC is setup to use Symitar!");
+				disconnect();
+				return SessionError.IP_NOT_ALLOWED;
+			} else if (temp.contains("Selection :")) { // This is for EASE Menu
 				System.out.println("EASE Menu has been detected");
 				int EASE_Selection = EaseSelection.getEASESelection(temp, sym);
 				System.out.println("EASE Selection = "+EASE_Selection+"\n");
@@ -241,9 +254,17 @@ public class DirectSymitarSession extends SymitarSession {
 						symRev = current.getParameters().get("HostRev").trim();
 					}
 					// Checks to see if the Console is already locked out.
-					if( current.getCommand().equals("SymLogonError") && current.getParameters().get("Text").contains("Too Many Invalid Password Attempts") ){
-						disconnect();
-						return SessionError.CONSOLE_BLOCKED;
+					if( current.getCommand().equals("SymLogonError")){
+						if(current.getParameters().get("Text").contains("Too Many Invalid Password Attempts")){
+							disconnect();
+							return SessionError.CONSOLE_BLOCKED;
+						} else if(current.getParameters().get("Text").contains("Revision Incompatibility")){
+							disconnect();
+							return SessionError.INCOMPATIBLE_REVISION;
+						} else {
+							disconnect();
+							return SessionError.UNDEFINED_ERROR;
+						}
 					}
 				}
 	
@@ -777,7 +798,10 @@ public class DirectSymitarSession extends SymitarSession {
 			if (current.getParameters().get("Status") != null)
 				break;
 
-			if( current.getParameters().get("Name") != null)
+			if( current.getParameters().get("Name") != null &&
+				current.getParameters().get("Date") != null &&
+				current.getParameters().get("Time") != null &&
+				current.getParameters().get("Size") != null)
 				toRet.add(new SymitarFile(sym, current.getParameters().get("Name"), type, Util.parseDate(current.getParameters().get("Date"), current.getParameters().get("Time")), Integer.parseInt(current.getParameters().get("Size"))));
 		
 						
