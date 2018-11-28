@@ -1031,11 +1031,13 @@ public class EditorComposite extends Composite implements TabTextEditorView {
 					line = txt.getText(startOffset, endOffset - 1);	
 
 				if( line.indexOf("#INCLUDE") != -1 ) {
-					String fileStr = line.substring(line.indexOf("\"")+1, line.lastIndexOf("\""));
-					if( file.isLocal() )
-						RepDevMain.mainShell.openFile(new SymitarFile(file.getDir(), fileStr, file.getType()));
-					else	
-						RepDevMain.mainShell.openFile(new SymitarFile(sym, fileStr, FileType.REPGEN));
+					try {
+						String fileStr = line.substring(line.indexOf("\"")+1, line.lastIndexOf("\""));
+						if( file.isLocal() )
+							RepDevMain.mainShell.openFile(new SymitarFile(file.getDir(), fileStr, file.getType()));
+						else	
+							RepDevMain.mainShell.openFile(new SymitarFile(sym, fileStr, FileType.REPGEN));
+					} catch (Exception ex) {}
 				}
 				else if(txt.getSelectionText().equalsIgnoreCase("CALL")) {
 					txt.setCaretOffset(txt.getCaretOffset()+1);
