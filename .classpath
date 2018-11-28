@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry excluding="backup/|bin/|dist/|res/|snippets/|styles/|testdata/" kind="src" path=""/>
-	<classpathentry kind="lib" path="swt-win/swtcompare.jar"/>
 	<classpathentry kind="lib" path="swt-win/64/swt-debug.jar"/>
 	<classpathentry kind="lib" path="swt-win/64/swt.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
@@ -12,5 +11,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="swtcompare.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
