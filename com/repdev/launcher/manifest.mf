@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
 Main-Class: com.repdev.launcher.Launcher
-Class-Path: swt-win/swt.jar swtcompare.jar ./
+Class-Path: swt-win/swt.jar swtcompare.jar repdev32.jar
 

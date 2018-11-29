@@ -28,6 +28,8 @@ import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.repdev.RepDevMain;
+
 public class SpecialVariables {
 	private static SpecialVariables specialVars = new SpecialVariables();
 	
@@ -40,7 +42,7 @@ public class SpecialVariables {
 		
 		
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(new File("vars.txt")));
+			BufferedReader br = new BufferedReader(new FileReader(new File(RepDevMain.KEYS_DIR + "vars.txt")));
 			String line;
 
 			while ((line = br.readLine()) != null) {

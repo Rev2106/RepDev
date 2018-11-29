@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="backup/|bin/|dist/|res/|snippets/|styles/|testdata/" kind="src" path=""/>
-	<classpathentry kind="lib" path="swt-win/64/swt-debug.jar"/>
-	<classpathentry kind="lib" path="swt-win/64/swt.jar"/>
+	<classpathentry excluding="backup/|bin/|conf/|dist/|icons/|jars/|keywords/|logs/|res/|snippets/|styles/|testdata/" kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="swt-win/32/swt-debug.jar"/>
-	<classpathentry kind="lib" path="swt-win/32/swt.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="swtcompare.jar"/>
+	<classpathentry kind="lib" path="jars/swt-win32-debug.jar"/>
+	<classpathentry kind="lib" path="jars/swt-win32.jar"/>
+	<classpathentry kind="lib" path="jars/swt-win64-debug.jar"/>
+	<classpathentry kind="lib" path="jars/swt-win64.jar"/>
+	<classpathentry kind="lib" path="jars/swtcompare.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>

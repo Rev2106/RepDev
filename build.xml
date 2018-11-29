@@ -5,85 +5,97 @@
 	<!-- set global properties for this build -->
 	<property name="src" location="./" />
 	<property name="build" location="bin" />
+	<property name="build32" location="${build}/32" />
+	<property name="build64" location="${build}/64" />
 	<property name="dist" location="dist" />
-	<property name="swt-win" location="swt-win" />
-	<property name="swt-lin" location="swt-lin" />
+	<property name="swt" location="jars" />
+	<property name="launch4j.dir" location="C:\Program Files (x86)\Launch4j" />
 
-	<path id="project-classpath">
-		<fileset dir="${src}" includes="*.jar" />
-		<fileset dir="${swt-win}" includes="*.jar" />
-		<fileset dir="${swt-lin}" includes="*.jar" />
+	<path id="project-classpath32">
+		<fileset dir="${swt}" includes="swt-win32.jar,swtcompare.jar" />
+	</path>
+	<path id="project-classpath64">
+		<fileset dir="${swt}" includes="swt-win64.jar,swtcompare.jar" />
 	</path>
 	
-	<target name="init">
-		<!-- Create the time stamp -->
-		<tstamp />
-		<!-- Create the build directory structure used by compile -->
-		<mkdir dir="${build}" />
-		<buildnumber file="dist/build.number" />
-	</target>
-
-
-	<target name="compile" depends="init" description="compile the source ">
-		<!-- Compile the java code from ${src} into ${build} -->
-		<javac srcdir="${src}" destdir="${build}" classpathref="project-classpath" includeantruntime="false"/>
-	</target>
-	
-	<target name="dist" description="generate the distribution">
-		<!-- Create the distribution directory -->
-		<mkdir dir="${dist}" />
-
-		<!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
-		<!-- <jar jarfile="${dist}/RepDev-${DSTAMP}.jar" basedir="${build}"/> -->
-
-		<delete>
-		 <fileset dir="${dist}" >
-		 	<include name="**/*.class"/>
-  		 </fileset>
-		</delete>
-		
-		<copy todir="${dist}" overwrite="true">
-			<fileset dir="${src}">
-				<exclude name="**/*.java" />
-				<exclude name="**/*.conf" />
-				<exclude name="**/bin/**" />
-				<exclude name="**/dist/**" />
-				<exclude name="**/backup/**" />
-				<exclude name="**/swt-lin/**" />
-                <exclude name="**/.settings/**" />
-                <exclude name="**/.svn/**" />
-                <exclude name="**/.hg/**" />
-				<exclude name="**/swt-win/swt-debug.jar/**" />
-				<exclude name="**/swt-win/src.zip/**" />
-			</fileset>
-		</copy>
-		
-		<delete dir="${build}" />
-		<delete dir="${dist}/bin" />
-		<delete dir="${dist}/backup" />
-		<delete dir="${dist}/dist" />
-		
-		<!-- Now that the config is in the main folder, dont dist it -->
-		<delete file="${dist}/repdev.conf"/>
-		<delete file="${dist}/.hgignore"/>
-		<delete file="${dist}/.classpath"/>
-		<delete file="${dist}/.project"/>
-		<delete file="${dist}/stdout.txt"/>
-		<delete file="${dist}/stderr.txt"/>
-		
-	</target>
-
 	<target name="clean" description="clean up">
 		<!-- Delete the ${build} and ${dist} directory trees -->
 		<delete dir="${build}" />
 		<delete dir="${dist}" />
 	</target>
 	
-	<target name="Launcher-jar" description="Make a jar of the launcher">
-		<jar jarfile="com/repdev/launcher/launcher.jar" 
-			basedir="com/repdev/launcher/"
-			excludes="*.jar,*.zip"
-			manifest="${src}/com/repdev/launcher/manifest.mf" />
+	<target name="init" depends="clean" description="create build directories">
+		<!-- Create the time stamp -->
+		<tstamp />
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}" />
+		<mkdir dir="${build32}" />
+		<mkdir dir="${build64}" />
+		<!--<mkdir dir="${dist}" />
+		<buildnumber file="${dist}/build.number" />-->
+	</target>
+
+	<target name="compile" depends="init" description="compile the source ">
+		<!-- Compile the java code from ${src} into ${build} -->
+		<javac srcdir="${src}" destdir="${build32}" classpathref="project-classpath32" includeantruntime="false"/>
+		<javac srcdir="${src}" destdir="${build64}" classpathref="project-classpath64" includeantruntime="false"/>
+		<!-- Put everything in ${build} into the MyProject.jar file -->
+		<jar jarfile="${swt}/repdev-win32.jar" basedir="${build32}" manifest="manifest-win32.mf" />
+		<jar jarfile="${swt}/repdev-win64.jar" basedir="${build64}" manifest="manifest-win64.mf" />
+	</target>
+	
+	<target name="exe" depends="compile" description="create executables">
+		<taskdef name="launch4j" classname="net.sf.launch4j.ant.Launch4jTask" 
+			classpath="${launch4j.dir}/launch4j.jar:${launch4j.dir}/lib/xstream.jar" />
+		<launch4j configFile="launch4j-win32.xml" />
+		<launch4j configFile="launch4j-win64.xml" />
+	</target>
+	
+	<target name="dist" depends="exe" description="generate the distribution">
+		<!-- Create the distribution directory -->
+		<mkdir dir="${dist}" />
+		
+		<copy todir="${dist}" overwrite="true">
+			<fileset dir="${src}">
+				<exclude name=".*" />
+				<exclude name="*.xml" />
+				<exclude name="*.mf" />
+				<exclude name="**/*.java" />
+				<exclude name="**/*.conf" />
+				<exclude name="**/bin/**" />
+				<exclude name="**/dist/**" />
+                <exclude name="**/.settings/**" />
+				<exclude name="**/backup/**" />
+				<exclude name="**/bin/**" />
+				<exclude name="**/com/**" />
+				<exclude name="**/conf/**" />
+				<exclude name="**/logs/**" />
+                <exclude name="**/.git/**" />
+                <exclude name="**/.svn/**" />
+                <exclude name="**/.hg/**" />
+				<exclude name="**/*.zip" />
+				<exclude name="**/*debug.jar" />
+				<exclude name="**/*lin.jar" />
+			</fileset>
+		</copy>
+		
+		<delete dir="${build}" />
+		<delete dir="${dist}/backup" />
+		<delete dir="${dist}/bin" />
+		<delete dir="${dist}/com" />
+		<delete dir="${dist}/conf" />
+		<delete dir="${dist}/dist" />
+		<delete dir="${dist}/logs" />
+		
+		<!-- Now that the config is in the main folder, dont dist it -->
+		<delete file="${dist}/.classpath"/>
+		<delete file="${dist}/.gitignore"/>
+		<delete file="${dist}/.hgignore"/>
+		<delete file="${dist}/.project"/>
+		<delete><fileset dir="${dist}"><include name="build*.xml"/></fileset></delete>
+		<delete><fileset dir="${dist}"><include name="launch*.xml"/></fileset></delete>
+		<delete><fileset dir="${dist}"><include name="manifest*.mf"/></fileset></delete>
+		
 	</target>
 	
 </project>

@@ -5,4 +5,4 @@ set JPATH=
 
 echo.
 
-"%JPATH%java.exe" -cp swt-win/32/swt.jar;swt-win/swtcompare.jar;./ -Djava.library.path=swt-win com.repdev.RepDevMain
+"%JPATH%java.exe" -cp jars/swt-win32.jar;jars/swt-compare.jar;jars/repdev-win32.jar com.repdev.RepDevMain

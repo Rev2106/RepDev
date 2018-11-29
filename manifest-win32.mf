@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: com.repdev.RepDevMain
+Class-Path: swt-win32.jar swtcompare.jar

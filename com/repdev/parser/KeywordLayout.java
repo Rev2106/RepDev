@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.repdev.RepDevMain;
+
 /**
  * Keeps track of the keywords used for syntax highlighting and in program docs
  * @author Jake Poznanski
@@ -26,7 +28,7 @@ public class KeywordLayout {
 		Matcher wordMatcher;
 		
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(new File("keywords.txt")));
+			BufferedReader br = new BufferedReader(new FileReader(new File(RepDevMain.KEYS_DIR + "keywords.txt")));
 			String line;
 			
 			while ((line = br.readLine()) != null) {

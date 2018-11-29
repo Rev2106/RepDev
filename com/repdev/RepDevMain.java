@@ -67,7 +67,10 @@ public class RepDevMain {
 	smallWarningImage, smallReportsImage, smallPrintImage, smallFolderImage, smallFolderAddImage, smallFolderRemoveImage, smallActionSaveAsImage, smallProgramIcon, smallInstallImage, smallCompareImage, smallSurroundImage, smallSurroundPrint,
 	smallTaskTodo, smallTaskFixme, smallTaskBug, smallTaskWtf, smallHighlight, smallHighlightGrey, smallFormatCodeImage, smallInsertSnippetImage, smallFunctionImage, smallSnippetImage, smallKeywordImage, smallDefineVarImage,
 	smallRepGenDemandImage;
-	public static final String IMAGE_DIR = "repdev-icons/";
+	public static final String CONF_DIR = "conf/";
+	public static final String IMAGE_DIR = "icons/";
+	public static final String KEYS_DIR = "keywords/";
+	public static final String LOGS_DIR = "logs/";
 
 	public static SnippetManager snippetManager;
 
@@ -85,6 +88,11 @@ public class RepDevMain {
 				+"under certain conditions.\n");
 
 		try{
+			File d = new File(CONF_DIR);
+			d.mkdirs();
+			d = new File(LOGS_DIR);
+			d.mkdirs();
+			
 			loadSettings();
 			createImages();
 			createGUI();
@@ -203,8 +211,8 @@ public class RepDevMain {
 	 * Also, starts the snippet manager
 	 */
 	public static void loadSettings() {
-		String localFile = "repdev.conf";
-		String userFile = System.getProperty("user.home") + System.getProperty("file.separator") + "repdev.conf";
+		String localFile = CONF_DIR + "repdev.conf";
+		String userFile = System.getProperty("user.home") + System.getProperty("file.separator") + CONF_DIR + "repdev.conf";
 		String loadFile = localFile;
 
 		if( new File(userFile).exists() && !new File(localFile).exists() ){
@@ -285,7 +293,7 @@ public class RepDevMain {
 				Config.setLastUserID("");
 			}
 
-			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("repdev.conf"));
+			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(CONF_DIR + "repdev.conf"));
 			out.writeObject(Config.getConfig());
 			out.close();
 		} catch (Exception e) {

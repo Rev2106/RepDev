@@ -6,6 +6,8 @@ import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.repdev.RepDevMain;
+
 /**
  * This is a <s>simple</s> launcher for a JAR file that will be wrapped with Launch4J to create
  * a nice friendly repdev.exe that will run for anyone.
@@ -30,10 +32,10 @@ public class Launcher {
 		}
 
 		if( log ) {
-			PrintStream stderr = new PrintStream("stderr.txt");	
+			PrintStream stderr = new PrintStream(RepDevMain.LOGS_DIR + "stderr.txt");	
 			System.setErr(stderr);
 
-			PrintStream stdout = new PrintStream("stdout.txt");
+			PrintStream stdout = new PrintStream(RepDevMain.LOGS_DIR + "stdout.txt");
 			System.setOut(stdout);
 
 			System.out.println(">> RepDev Started via launcher with logging");
@@ -52,7 +54,7 @@ public class Launcher {
 				"",
 				"\tCommand\tAction",
 				"\t--help or -h\tThis message",
-				"\t--log\tLog all output to stdout.txt and stderr.txt",
+				"\t--log\tLog all output to logs/stdout.txt and logs/stderr.txt",
 				"",
 		};
 		

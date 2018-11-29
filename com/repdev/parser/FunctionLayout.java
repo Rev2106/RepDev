@@ -30,6 +30,8 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.repdev.RepDevMain;
+
 /*
  * Loads and provides fast helper methods for function content assist type stuff
  * 
@@ -51,7 +53,7 @@ public class FunctionLayout {
 		String line = null;
 		
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(new File("functions.txt")));
+			BufferedReader br = new BufferedReader(new FileReader(new File(RepDevMain.KEYS_DIR + "functions.txt")));
 			
 			Function cur = null;
 

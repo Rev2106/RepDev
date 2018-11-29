@@ -27,6 +27,8 @@ import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.repdev.RepDevMain;
+
 /**
  * Singleton class to load symitar database layout from local cache.
  * Provides many fast routines and cacheing (since it doesn't change during run time) to speed up repgen parsing
@@ -52,7 +54,7 @@ public class DatabaseLayout {
 		fieldPattern = Pattern.compile("([\\s]*)([a-zA-Z0-9:]*)\\|(.*)\\|(.*)\\|(.*)\\|(.*)");
 
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("db.txt"));
+			BufferedReader br = new BufferedReader(new FileReader(RepDevMain.KEYS_DIR + "db.txt"));
 			String line;
 
 			while ((line = br.readLine()) != null) {

@@ -30,6 +30,8 @@ import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Text;
 
+import com.repdev.RepDevMain;
+
 /**
  * OptionsShell version 2
  * @author Ryan Schultz
@@ -613,7 +615,7 @@ public class OptionsShell {
 		final List items = new List( documentationOptions, SWT.BORDER | SWT.SINGLE | SWT.V_SCROLL );
 		
 		// populate items:
-		File docsFile = new File("helpmenu.conf");
+		File docsFile = new File(RepDevMain.CONF_DIR + "helpmenu.conf");
 		try {
 			if( !docsFile.exists() )
 				docsFile.createNewFile();
@@ -719,7 +721,7 @@ public class OptionsShell {
 		save.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				try {
-					FileWriter newMenu = new FileWriter("helpmenu.conf");
+					FileWriter newMenu = new FileWriter(RepDevMain.CONF_DIR + "helpmenu.conf");
 					PrintWriter file = new PrintWriter(newMenu);				
 					for( String item: items.getItems() ) {
 						if( item.equals("----") ) {

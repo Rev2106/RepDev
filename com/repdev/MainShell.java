@@ -116,6 +116,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.repdev.RepDevMain;
 import com.repdev.parser.Error;
 import com.repdev.parser.RepgenParser;
 import com.repdev.parser.Task;
@@ -3577,7 +3578,7 @@ public class MainShell {
 
 		// Populate Docs Menu:
 		try {
-			FileReader hmf = new FileReader("helpmenu.conf");
+			FileReader hmf = new FileReader(RepDevMain.CONF_DIR + "helpmenu.conf");
 			BufferedReader hm = new BufferedReader(hmf);
 			String line;
 			while( (line = hm.readLine()) != null ) {
