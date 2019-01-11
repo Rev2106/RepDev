@@ -249,7 +249,11 @@ public class SymLoginShell {
 				MessageBox diag=new MessageBox(new Shell(),SWT.OK | SWT.ICON_WARNING);
 				diag.setText("SYM Inconsistent");
 				diag.setMessage("WARNING: You specified SYM " + session.getSym() + " during login, but you are actually logged into SYM " + ((DirectSymitarSession)session).getActualSym());
+				diag.setMessage(diag.getMessage() + "\n\nDisconnecting...");
 				diag.open();
+				session.disconnect();
+				me.result = -1;
+				return;
 			}
 			me.result = sym;
 			return;

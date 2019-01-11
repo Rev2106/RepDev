@@ -1,0 +1,27 @@
+<RepDevStyle>
+  <header>
+    <name>Old School RepDev</name>
+    <version>1.0</version>
+    <author>Sean (with help from Ryan)</author>
+    <description><![CDATA[Dark theme with a neon glow; because batcave can't even begin to look this cool.]]>
+    </description>
+  </header>
+  
+  <style>
+    <editor bgColor="000000" fgColor="BF2F00" line="440000" token="004400" font="Courier New" fontSize="11" />
+    
+	<comments fgColor="#7F7F7F" />
+    <variables fgColor="#BF2F00" style="bold" />    
+    <functions fgColor="#BF2F00" style="bold" />    
+    <keywords fgColor="#BF2F00" />
+    <task fgColor="#BF2F00" style="bold" />
+    
+    <typeChar fgColor="#BF2F00" />
+    <typeDate fgColor="#BF2F00" style="bold" />
+    
+    <struct1 fgColor="#BF2F00" />
+    <struct1Inv fgColor="#BF2F00" bgColor="#0000CF" />    
+    <struct2 fgColor="#BF2F00" />
+    <struct2Inv fgColor="#BF2F00" bgColor="#0000CF" />    
+  </style>
+</RepDevStyle>
