@@ -22,12 +22,12 @@
     <maxHeapSize>384</maxHeapSize>
   </jre>
   <versionInfo>
-    <fileVersion>0.1.6.12</fileVersion>
-    <txtFileVersion>1.6.12</txtFileVersion>
+    <fileVersion>0.1.7.0</fileVersion>
+    <txtFileVersion>1.7.0</txtFileVersion>
     <fileDescription>RepDev Launcher</fileDescription>
     <copyright>(c) 2008-2009 RepDev LLC</copyright>
-    <productVersion>1.6.12.0</productVersion>
-    <txtProductVersion>1.6.12</txtProductVersion>
+    <productVersion>1.7.0.0</productVersion>
+    <txtProductVersion>1.7.0</txtProductVersion>
     <productName>RepDev</productName>
     <companyName>RepDev LLC</companyName>
     <internalName>RepDev</internalName>
