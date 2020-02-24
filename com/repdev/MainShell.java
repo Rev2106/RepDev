@@ -1711,7 +1711,7 @@ public class MainShell {
 					}
 
 					if (RepDevMain.SYMITAR_SESSIONS.get(sym).isConnected()) {
-						ProjectManager.saveProjects(sym);
+						if(((DirectSymitarSession)RepDevMain.SYMITAR_SESSIONS.get(sym)).keepAliveActive()) ProjectManager.saveProjects(sym);
 						RepDevMain.SYMITAR_SESSIONS.get(sym).disconnect();
 						currentItem.setImage(RepDevMain.smallSymImage);
 						currentItem.setExpanded(false);
@@ -3006,9 +3006,9 @@ public class MainShell {
 				currNavLine = line;
 				currHistoryStep = navHistory.size();
 			}
-		if(navHistory.size() > NAVIGATE_HISTORY_LIMIT) {
+		if(navHistory.size() > NAVIGATE_HISTORY_LIMIT){
 			navHistory.remove(0); // Keep limit to NAVIGATE_HISTORY_LIMIT
-			currHistoryStep--;  // prevents the IndexOutOfBounds crash
+			currHistoryStep = navHistory.size();
 		}
 	}
 	private boolean SuspendNavRecording = false;

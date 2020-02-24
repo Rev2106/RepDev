@@ -1036,7 +1036,7 @@
 		PAYEENAMELOCATOR|Payee Name Record Locator|808|4|null
 		DIVIDENDDUE|Dividend Due|809|7|null
 		***|SHARE HOLD|Share Hold
-			TYPE|Hold Type|1|5|21
+			TYPE|Hold Type|1|5|23
 			EFFECTIVEDATE|Effective Date|2|3|null
 			EXPIRATIONDATE|Expiration Date|3|3|null
 			REFERENCE1|Reference 1|4|0|10
@@ -1595,6 +1595,7 @@
 			TRACERNUMBER|Tracer Number|60|0|15
 			DISPOSITIONFEE|Disposition Fee|61|7|null
 			TERMINATIONFEE|Termination Fee|62|7|null
+			MISCEXPENSEAMOUNT|Misc Expense Amount|63|7|null
 			SUBSOURCEDESCR|Sub Source Description|800|1|40
 			TRANAMOUNT|Transaction Amount|801|7|null
 			CONFIRMATIONNUMBER|Confirmation Number|802|0|14
@@ -2311,7 +2312,7 @@
 		LASTTRANDATE|Last Transaction Date|6|3|null
 		ORIGINALDATE|Original Loan Date|7|3|null
 		OPENDATE|Open Date|8|3|null
-		CHARGEOFFDATE|Charge Off Date|9|3|null
+		CHARGEOFFDATE|Charge-off Date|9|3|null
 		CLOSEDATE|Close Date|10|3|null
 		REFERENCE|Reference|11|0|20
 		WARNINGCODE:1|Warning 01 Code|12|5|999
@@ -2964,6 +2965,8 @@
 		FINALCHGOFFSTMTDATE|Final Charge Off Stmt Date|407|3|null
 		FINALCHGOFFSTMTMSGCODE|Final Chg Off Stmt Msg Code|408|5|9999
 		EARLYINTERVNTNNOTICEDATE|Early Intervention Notice Date|410|3|null
+		ACQUISITIONDATE|Acquisition Date|411|3|null
+		ACQUISITIONBALANCE|Acquisition Balance|412|7|null
 		STMTNOTESTARTDATE|Statement Note Start Date|413|3|null
 		MAPRCURRSTMTINTACCRD|MAPR Current Stmt Int Accrued|414|7|null
 		LOSSMITPAYMENT|Temp Loss Mit Payment|415|7|null
@@ -3065,7 +3068,7 @@
 		MAXLOANDUEDATE|Max Loan Due Date|851|3|null
 		NEXTSTMTDATE|Next Statement Date|852|3|null
 		***|LOAN HOLD|Loan Hold
-			TYPE|Hold Type|1|5|21
+			TYPE|Hold Type|1|5|23
 			EFFECTIVEDATE|Effective Date|2|3|null
 			EXPIRATIONDATE|Expiration Date|3|3|null
 			REFERENCE1|Reference 1|4|0|10
@@ -3996,6 +3999,7 @@
 			TRACERNUMBER|Tracer Number|60|0|15
 			DISPOSITIONFEE|Disposition Fee|61|7|null
 			TERMINATIONFEE|Termination Fee|62|7|null
+			MISCEXPENSEAMOUNT|Misc Expense Amount|63|7|null
 			SUBSOURCEDESCR|Sub Source Description|800|1|40
 			TRANAMOUNT|Transaction Amount|801|7|null
 			CONFIRMATIONNUMBER|Confirmation Number|802|0|14
@@ -6772,7 +6776,7 @@
 		BALANCE|Balance|800|7|null
 		AVAILABLEBALANCE|Available Balance|801|7|null
 		***|PORTFOLIO HOLD|Portfolio Hold
-			TYPE|Hold Type|1|5|21
+			TYPE|Hold Type|1|5|23
 			EFFECTIVEDATE|Effective Date|2|3|null
 			EXPIRATIONDATE|Expiration Date|3|3|null
 			REFERENCE1|Reference 1|4|0|10
@@ -9114,6 +9118,7 @@
 	CODE:2|Code 2|16|5|9999
 	CODE:3|Code 3|16|5|9999
 	CODE:4|Code 4|16|5|9999
+	CODE:5|Code 5|16|5|9999
 	AMOUNT:1|Amount|17|7|null
 	AMOUNT:2|Amount 2|17|7|null
 	CH1:1|Ch1 1|18|0|1
@@ -10989,7 +10994,7 @@
 			LATECHRG|Late Charge Chg|31|7|null
 			SUBACTIONCODE|Sub Action Code|32|0|1
 ***|USER|User
-	LASTCONSOLE|Last Console|1|5|9130
+	LASTCONSOLE|Last Console|1|5|9190
 	NUMBER|User Number|2|5|9999
 	NAME|Name|3|0|20
 	PRIVILEGE:1|Privilege Group 0001|5|8|null
@@ -14650,10 +14655,10 @@
 	SECURITYCODE:1561|Host Ext Loan Processg Status|15|5|1
 	SECURITYCODE:1562|Param FM Statement Messages|15|5|1
 	SECURITYCODE:1563|Purge Member - Online|15|5|1
-	SECURITYCODE:1564|Loan Term Creation|15|5|1
-	SECURITYCODE:1565|Loan Term Revision|15|5|1
-	SECURITYCODE:1566|Loan Term Balance Creation|15|5|1
-	SECURITYCODE:1567|Loan Term Balance Revision|15|5|1
+	SECURITYCODE:1564|Loan Bankruptcy Creation|15|5|1
+	SECURITYCODE:1565|Loan Bankruptcy Revision|15|5|1
+	SECURITYCODE:1566|Ln BK PrePetition Bal Creation|15|5|1
+	SECURITYCODE:1567|Ln BK PrePetition Bal Revision|15|5|1
 	SECURITYCODE:1568|Teller Tran Bal Transfr|15|5|1
 	SECURITYCODE:1569|Teller Tran Bal Xfr Adj|15|5|1
 	SECURITYCODE:1570|Teller Tran Bal Payment|15|5|1
@@ -14661,6 +14666,16 @@
 	SECURITYCODE:1572|Purge Accounts - Online|15|5|1
 	SECURITYCODE:1573|Param FM Positive Pay|15|5|1
 	SECURITYCODE:1574|Teller Tran Positive Pay Draft|15|5|1
+	SECURITYCODE:1575|Loan CC Balance Creation|15|5|1
+	SECURITYCODE:1576|Loan CC Balance Revision|15|5|1
+	SECURITYCODE:1577|Loan CC Offer Creation|15|5|1
+	SECURITYCODE:1578|Loan CC Offer Revision|15|5|1
+	SECURITYCODE:1579|Loan CC Offer Deletion|15|5|1
+	SECURITYCODE:1580|CC Promo Creation|15|5|1
+	SECURITYCODE:1581|CC Promo Revision|15|5|1
+	SECURITYCODE:1582|CC Promo Deletion|15|5|1
+	SECURITYCODE:1583|Param FM IRS Backup Withholdng|15|5|1
+	SECURITYCODE:1584|Param FM IRS Contrib Limit|15|5|1
 	SECURITYAMOUNT:1|Check Received Limit|16|7|null
 	SECURITYAMOUNT:2|Disbursal Limit|16|7|null
 	SECURITYAMOUNT:3|General Ledger Limit|16|7|null

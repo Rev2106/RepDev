@@ -21,8 +21,10 @@ package com.repdev;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.RGB;
 /**
  * Configuration class is serialized at the start/end of the program to store things like syms open, server, and other global config things
  * @author Jake Poznanski
@@ -43,6 +45,8 @@ public class Config implements Serializable {
 	
 	private String style = "default";
 	
+	private int liveSym = 1999;
+	private String liveSymColor = "FFD7E4";
 	/**
 	 * REVISION is a constant.  This constant should be incrmented everytime there is a new
 	 * feature added.  RepDevMain will compare REVISION with getRevision() and if they are
@@ -118,7 +122,7 @@ public class Config implements Serializable {
 
 	public static void setConfig(Config config) {
 		me = config;
-		
+		Collections.sort(me.syms);
 		/**
 		 * Note, this is where we should set any init stuff to un-null any objects
 		 */
@@ -226,6 +230,22 @@ public class Config implements Serializable {
 	    me.style = s;
 	}
 	
+	public static void setLiveSym(int s) {
+		me.liveSym = s;
+	}
+
+	public static int getLiveSym() {
+		return me.liveSym;
+	}
+
+	public static void setLiveSymColor(String c) {
+		me.liveSymColor = c;
+	}
+
+	public static String getLiveSymColor() {
+		return me.liveSymColor;
+	}
+
 	/**
 	 * Returns true if the main shell window was maximized, and false
 	 * if it was not maximized, when RepDev terminated
