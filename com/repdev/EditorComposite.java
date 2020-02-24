@@ -307,8 +307,8 @@ public class EditorComposite extends Composite implements TabTextEditorView {
 	}
 
 	public void setLineColor(SyntaxHighlighter hiColor){
-		lineBackgroundColor=hiColor.getLineColor();
-		blockMatchColor=hiColor.getBlockMatchColor();
+		lineBackgroundColor=SyntaxHighlighter.getLineColor();
+		blockMatchColor=SyntaxHighlighter.getBlockMatchColor();
 	}
 
 	public void lineHighlight() {
@@ -368,6 +368,7 @@ public class EditorComposite extends Composite implements TabTextEditorView {
 				for (int i = startLine; i <= endLine; i++) {
 					int startOffset = txt.getOffsetAtLine(i);
 					int endOffset;
+					@SuppressWarnings("unused")
 					String line;
 
 					if( i >= txt.getLineCount() - 1 ){
@@ -388,6 +389,7 @@ public class EditorComposite extends Composite implements TabTextEditorView {
 				}
 			}
 			txt.setRedraw(false);
+			@SuppressWarnings("unused")
 			int totalSpaces = 0;
 			for (int i = startLine; i <= endLine; i++) {
 				int startOffset = txt.getOffsetAtLine(i);
@@ -496,7 +498,7 @@ public class EditorComposite extends Composite implements TabTextEditorView {
 	}
 
 	public Color getLineColor(){
-		return highlighter.getLineColor();
+		return SyntaxHighlighter.getLineColor();
 	}
 
 	//Calculate and expand the width of numbered "bullet" margin.  Allows the whole number to be displayed as more lines are added to the file.
@@ -667,9 +669,11 @@ public class EditorComposite extends Composite implements TabTextEditorView {
 		txt.addPaintListener(new PaintListener (){
 			public void paintControl (PaintEvent e){
 				
-	            Rectangle clientArea = txt.getClientArea();
+	            @SuppressWarnings("unused")
+				Rectangle clientArea = txt.getClientArea();
 	            // To minimize the amount of page being redrawn, trying to limit it to just the numbered bullet margin area
 				int width = calcWidth();
+				@SuppressWarnings("unused")
 				Rectangle bgArea = new Rectangle(-2,-2,width,(txt.getLineCount()+1) * txt.getLineHeight());
 				
 				txt.getLineCount();
@@ -1380,6 +1384,7 @@ public class EditorComposite extends Composite implements TabTextEditorView {
 	}
 	private Boolean matchTokenAndGoto(Token token, String key, String nameToMAtch){
 		Object o;
+		@SuppressWarnings("unused")
 		int i = 0;
 		if(token.getTokenType() != null && token.getTokenType().equals(TokenType.DEFINED_VARIABLE)){
 			i = 1;
@@ -1605,6 +1610,7 @@ public class EditorComposite extends Composite implements TabTextEditorView {
 	 * @return Token
 	 */
 	public Token getTokenAt(int offset){
+		@SuppressWarnings("unused")
 		int beforeTokenEnd = 0;
 		Token token = null;
 
@@ -1642,6 +1648,7 @@ public class EditorComposite extends Composite implements TabTextEditorView {
 
 		//Check other open tabs, and if needed set the flag to reparse their includes
 		CTabFolder folder = (CTabFolder)getParent();
+		@SuppressWarnings("unused")
 		Object loc;
 
 		if( file.isLocal())
@@ -1656,11 +1663,15 @@ public class EditorComposite extends Composite implements TabTextEditorView {
 			RepgenParser parser = ((EditorComposite)cur.getControl()).getParser();
 
 			if( parser != null){
-				for( Include inc : parser.getIncludes()){
-					if( inc.getFileName().equals(file.getName())){
-						parser.setRefreshIncludes(true);
-						break;
+				try {
+					for( Include inc : parser.getIncludes()){
+						if( inc.getFileName().equals(file.getName())){
+							parser.setRefreshIncludes(true);
+							break;
+						}
 					}
+				} catch (java.util.ConcurrentModificationException e) {
+					System.out.println(e);
 				}
 			}
 		}

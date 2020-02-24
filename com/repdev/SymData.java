@@ -9,10 +9,10 @@ public class SymData {
 	public SymData(int sym,String server,int port,String un,String ps,String uid) {
 		this.sym=sym;
 		this.server=server;
-		this.port=port;
-		this.lastUsername=un;
-		this.lastPassword=ps;
-		this.lastUserID=uid;
+		this.setPort(port);
+		this.setLastUsername(un);
+		this.setLastPassword(ps);
+		this.setLastUserID(uid);
 	}
 	
 	public int getSym() {
@@ -27,6 +27,38 @@ public class SymData {
 	}
 	public void setServer(String server) {
 		this.server=server;
+	}
+
+	public String getLastPassword() {
+		return lastPassword;
+	}
+
+	public void setLastPassword(String lastPassword) {
+		this.lastPassword = lastPassword;
+	}
+
+	public String getLastUserID() {
+		return lastUserID;
+	}
+
+	public void setLastUserID(String lastUserID) {
+		this.lastUserID = lastUserID;
+	}
+
+	public String getLastUsername() {
+		return lastUsername;
+	}
+
+	public void setLastUsername(String lastUsername) {
+		this.lastUsername = lastUsername;
+	}
+
+	public int getPort() {
+		return port;
+	}
+
+	public void setPort(int port) {
+		this.port = port;
 	}
 	
 	

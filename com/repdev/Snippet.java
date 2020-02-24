@@ -102,6 +102,7 @@ public class Snippet {
 	
 	//Called to clean up some of the snippet text, requires the variables to be loaded already
 	private void cleanup(){
+		@SuppressWarnings("unused")
 		StringBuilder ret = new StringBuilder();
 		String snippet = new String(this.snippet);
 		
@@ -264,6 +265,7 @@ public class Snippet {
 		String temp = new String(snippet);
 		ArrayList<String> seenVars = new ArrayList<String>();
 		String var;
+		@SuppressWarnings("unused")
 		int count = 0;
 		
 		while(temp.length() > 0){

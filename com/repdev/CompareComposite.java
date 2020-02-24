@@ -44,8 +44,8 @@ public class CompareComposite extends BasicCompareComposite implements TabView {
 	public CompareComposite(Composite parent, CTabItem tabItem, SymitarFile leftFile, SymitarFile rightFile, Color bgcolor){
 		super(parent,leftFile.getName(), rightFile.getName(),RepDevMain.mainShell.getFileImage(leftFile),RepDevMain.mainShell.getFileImage(rightFile));
 		
-		this.leftFile = leftFile;
-		this.rightFile = rightFile;
+		this.setLeftFile(leftFile);
+		this.setRightFile(rightFile);
 		
 		//Setup custom stuff on the styled texts for our application
 		String sData = leftFile.getData();
@@ -143,6 +143,22 @@ public class CompareComposite extends BasicCompareComposite implements TabView {
 		if( rightHighlighter != null)
 			rightHighlighter.setCustomLines(rIntLines);
 		
+	}
+
+	public SymitarFile getLeftFile() {
+		return leftFile;
+	}
+
+	public void setLeftFile(SymitarFile leftFile) {
+		this.leftFile = leftFile;
+	}
+
+	public SymitarFile getRightFile() {
+		return rightFile;
+	}
+
+	public void setRightFile(SymitarFile rightFile) {
+		this.rightFile = rightFile;
 	}
 
 }

@@ -279,7 +279,7 @@ public class FMShell {
 				final int seq = result.getSeq();
 
 				if( seq != -1){
-					stillRunning = true;
+					setStillRunning(true);
 					
 					shell.getDisplay().timerExec(500, new Runnable(){
 						public void run() {
@@ -291,7 +291,7 @@ public class FMShell {
 							}
 							else
 							{
-								stillRunning = false;
+								setStillRunning(false);
 								
 								System.out.println("Done, loading FM Sequence result");
 								
@@ -346,5 +346,13 @@ public class FMShell {
 		}
 
 		return dialog.result;
+	}
+
+	public boolean isStillRunning() {
+		return stillRunning;
+	}
+
+	public void setStillRunning(boolean stillRunning) {
+		this.stillRunning = stillRunning;
 	}
 }

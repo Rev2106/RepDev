@@ -63,7 +63,7 @@ public class ReportComposite extends Composite implements TabTextView{
 		super(parent, SWT.NONE);
 		this.file = file;
 		this.sym = file.getSym();
-		this.tabItem = item;
+		this.setTabItem(item);
 		
 		buildGUI();
 	}
@@ -72,7 +72,7 @@ public class ReportComposite extends Composite implements TabTextView{
 		super(parent, SWT.NONE);
 		this.seq = seq;
 		this.sym = seq.getSym();
-		this.tabItem = item;
+		this.setTabItem(item);
 		
 		buildGUI();
 	}
@@ -255,5 +255,13 @@ public class ReportComposite extends Composite implements TabTextView{
 
 	public SymitarFile getFile() {
 		return file;
+	}
+
+	public CTabItem getTabItem() {
+		return tabItem;
+	}
+
+	public void setTabItem(CTabItem tabItem) {
+		this.tabItem = tabItem;
 	}
 }

@@ -27,9 +27,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.Iterator;
+//import java.util.Iterator;
 import java.util.List;
-import java.util.Stack;
+//import java.util.Stack;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -111,9 +111,9 @@ import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
+//import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
+//import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.repdev.RepDevMain;
@@ -184,6 +184,7 @@ public class MainShell {
 	final FormData frmSashHoriz = new FormData();
 	
 	private void createShell() {
+		@SuppressWarnings("unused")
 		int leftPercent = 20, bottomPercent = 20;
 		shell.setText(RepDevMain.NAMESTR);
 		if(Config.getHostNameInTitle())
@@ -545,6 +546,7 @@ public class MainShell {
 
 		if ((cur.getData() instanceof SymitarFile)) {
 			SymitarFile file = (SymitarFile) cur.getData();
+			@SuppressWarnings("unused")
 			int sym = ((Project) cur.getParentItem().getData()).getSym();
 			openFile(file);
 		} else {
@@ -2710,6 +2712,7 @@ public class MainShell {
 
 		});
 
+		@SuppressWarnings("unused")
 		final MenuItem separator = new MenuItem(tabContextMenu, SWT.SEPARATOR);
 
 		final MenuItem save = new MenuItem(tabContextMenu, SWT.None);
@@ -2979,6 +2982,7 @@ public class MainShell {
 	private static final int NAVIGATE_HISTORY_LIMIT = 200;
 	private static final int NAVIGATE_HISTORY_LINE_CHANGE = 50;
 	
+	@SuppressWarnings("unlikely-arg-type")
 	public void addToNavHistory(SymitarFile file, int line){
 		if(SuspendNavRecording || file == null) // Do not record navigation when this flag is set to true
 			return;
@@ -3297,6 +3301,7 @@ public class MainShell {
 				}
 
 				// Indicator used for creating recents list
+				@SuppressWarnings("unused")
 				MenuItem staticSeperator = new MenuItem(fileMenu, SWT.SEPARATOR);
 
 				
@@ -3601,7 +3606,8 @@ public class MainShell {
 						}
 					}					
 				});
-			}			
+			}
+			hm.close();
 		} catch( Exception e ) {
 			// Ignore Errors...
 		}
@@ -3842,6 +3848,7 @@ public class MainShell {
 		});
 	}
 
+	@SuppressWarnings("unused")
 	private void setEditorBarStatus() {
 		if (mainfolder.getSelection().getControl() instanceof EditorComposite) {
 			SymitarFile file = ((EditorComposite) mainfolder.getSelection().getControl()).getFile();
@@ -3883,6 +3890,14 @@ public class MainShell {
 			shell.setText(RepDevMain.NAMESTR);
 		if(Config.getHostNameInTitle())
 			shell.setText(shell.getText() + " - " + Config.getServer());
+	}
+
+	public SurroundWithShell getSurroundWithShell() {
+		return surroundWithShell;
+	}
+
+	public void setSurroundWithShell(SurroundWithShell surroundWithShell) {
+		this.surroundWithShell = surroundWithShell;
 	}
 
 //	public ArrayList<EditorComposite> getEditorCompositeList() {

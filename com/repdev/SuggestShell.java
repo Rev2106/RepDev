@@ -20,7 +20,7 @@
 package com.repdev;
 
 import java.util.ArrayList;
-import java.util.Collections;
+//import java.util.Collections;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyleRange;
@@ -39,9 +39,9 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.ShellAdapter;
 import org.eclipse.swt.events.ShellEvent;
 import org.eclipse.swt.events.VerifyEvent;
-import org.eclipse.swt.graphics.Color;
+//import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.graphics.RGB;
+//import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
@@ -215,8 +215,8 @@ public class SuggestShell {
 					}
 
 					ArrayList<Field> sortedFields = dRecord.getFields();
-
-					Collections.sort(sortedFields);
+					sortedFields.sort(null);
+					//Collections.sort(sortedFields);
 
 					for (Field field : dRecord.getFields()) {
 						if (tokenStr.equals(":") || field.getName().toLowerCase().startsWith(tokenStr)) {
@@ -241,8 +241,8 @@ public class SuggestShell {
 					tokenStr = "";
 
 				ArrayList<Variable> vars = new ArrayList<Variable>(parser.getLvars());
-
-				Collections.sort(vars);
+				vars.sort(null);
+				//Collections.sort(vars);
 
 				for (Variable var : vars) {
 					if (var.getName().toLowerCase().startsWith(tokenStr)) {

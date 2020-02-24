@@ -19,15 +19,15 @@
 //TODO:FIX PARSER BUG WITH "#" HIGHLIGHTING
 package com.repdev.parser;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+//import java.io.BufferedReader;
+//import java.io.File;
+//import java.io.FileReader;
+//import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+//import java.util.HashSet;
+//import java.util.List;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
@@ -37,7 +37,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 
-import com.repdev.EditorComposite;
+//import com.repdev.EditorComposite;
 import com.repdev.ErrorCheckResult;
 import com.repdev.FileType;
 import com.repdev.RepDevMain;
@@ -547,6 +547,7 @@ public class RepgenParser {
 
 		char[] chars = str.substring(charStart, charEnd).toLowerCase().toCharArray();
 
+		@SuppressWarnings("unused")
 		boolean inString=false, inDate=false, inDefine = false, inSetup = false;
 		int commentDepth=0;
 		if(ftoken>0){
@@ -985,6 +986,7 @@ public class RepgenParser {
 			int oldend = st + replacedText.length();
 			boolean rebuildVars = false;
 
+			@SuppressWarnings("unused")
 			long time = System.currentTimeMillis();
 
 			try {

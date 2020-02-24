@@ -19,7 +19,7 @@
 
 package com.repdev.parser;
 
-public class Field implements Comparable {
+public class Field implements Comparable<Object> {
 	private String name = "", description = "";
 	private int fieldNumber;
 	private VariableType variableType;

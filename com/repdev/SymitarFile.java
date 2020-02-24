@@ -105,7 +105,7 @@ public class SymitarFile implements Serializable {
 				
 				while( (line=in.readLine()) != null)
 					sb.append(line + "\n");
-				
+				in.close();
 				return sb.toString();
 			} catch (FileNotFoundException e) {
 				return null;

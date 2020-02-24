@@ -50,7 +50,7 @@ import com.repdev.parser.Token.SpecialBackgroundReason;
  */
 public class SyntaxHighlighter implements ExtendedModifyListener, LineStyleListener, LineBackgroundListener {
 	//TODO: Style set here
-	private static String styleName = "default";
+	//private static String styleName = "default";
 
 	private static String FONT_NAME = ""; // "Courier New"; //Fix Font Behavior
 	private static int FONT_SIZE = 0;// = 11;
@@ -100,8 +100,8 @@ public class SyntaxHighlighter implements ExtendedModifyListener, LineStyleListe
 	public SyntaxHighlighter(RepgenParser parser) {
 		this.parser = parser;
 		this.txt = parser.getTxt();
-		this.file = parser.getFile();
-		this.sym = parser.getSym();
+		this.setFile(parser.getFile());
+		this.setSym(parser.getSym());
 
 		txt.setForeground(FORECOLOR);
 		txt.setBackground(BACKCOLOR);
@@ -121,10 +121,10 @@ public class SyntaxHighlighter implements ExtendedModifyListener, LineStyleListe
 	public SyntaxHighlighter(RepgenParser parser, Color customLineColor, int[] customLines){
 		this.parser = parser;
 		this.txt = parser.getTxt();
-		this.file = parser.getFile();
-		this.sym = parser.getSym();
+		this.setFile(parser.getFile());
+		this.setSym(parser.getSym());
 
-		this.customColor = customLineColor;
+		SyntaxHighlighter.customColor = customLineColor;
 		this.customLines = customLines;
 
 
@@ -351,6 +351,30 @@ public class SyntaxHighlighter implements ExtendedModifyListener, LineStyleListe
 		if( go ){
 			event.lineBackground = customColor;
 		}
+	}
+
+	public SymitarFile getFile() {
+		return file;
+	}
+
+	public void setFile(SymitarFile file) {
+		this.file = file;
+	}
+
+	public int getSym() {
+		return sym;
+	}
+
+	public void setSym(int sym) {
+		this.sym = sym;
+	}
+
+	public static EStyle getMAIN() {
+		return MAIN;
+	}
+
+	public static void setMAIN(EStyle mAIN) {
+		MAIN = mAIN;
 	}
 
 }

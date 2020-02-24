@@ -8,7 +8,7 @@ import java.io.IOException;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.layout.FillLayout;
+//import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -139,7 +139,7 @@ public class ProjectBackupShell {
 						progress.setSelection(80);
 						status.setText(status.getText() 
 								+ "Finished, errors: " + se.toString() + "\r\n" );
-						
+						project.close();
 					} catch (FileNotFoundException e1) {
 						e1.printStackTrace();
 					} catch (IOException e1) {

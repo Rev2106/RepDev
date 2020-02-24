@@ -26,8 +26,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+//import java.util.Calendar;
+//import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 import org.eclipse.swt.SWT;
@@ -55,6 +55,7 @@ public class RepDevMain {
 	public static final int VFIX   = 13;
 	public static final String VSPECIAL = "EB Version"; // "special" string for release names, beta, etc
 
+	@SuppressWarnings("unused")
 	public static final String VERSION = VMAJOR + "." + VMINOR + (VFIX>0?"."+VFIX:"") + (DEVELOPER ? "-dev" : "") + (!VSPECIAL.equals("")? " " + VSPECIAL : "");
 	public static final String NAMESTR = "RepDev v" + VERSION;
 	public static boolean FORGET_PASS_ON_EXIT = false; // set in options only please.

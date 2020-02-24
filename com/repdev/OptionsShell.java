@@ -16,7 +16,7 @@ import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.layout.RowLayout;
+//import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
@@ -630,7 +630,8 @@ public class OptionsShell {
 				if( data.length != 2 ) continue; // ignore bad lines.
 				items.add(data[0].trim());
 				items.setData(data[0].trim(),data[1].trim());
-			}			
+			}
+			docsReader.close();
 		} catch( Exception e ) {
 			e.printStackTrace();
 		}

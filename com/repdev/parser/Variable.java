@@ -20,7 +20,7 @@
 package com.repdev.parser;
 
 
-public class Variable implements Comparable {
+public class Variable implements Comparable<Object> {
 	private String name, filename, type;
 	boolean constant;
 	private int pos;

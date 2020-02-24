@@ -172,10 +172,10 @@ public class BackgroundSectionParser{
 			}
 			
 			if(isSectionHead(tok.getStr()) && !tok.inDate() && !tok.inString() && tok.getCDepth() == 0){
-				if(false && curDepth != 1){
+				/*if(false && curDepth != 1){
 					System.out.println("Mismatched Heads and Tails found while parsing "+si.getTitle()+" Section");
 					System.out.println(tok.getStr()+":"+curDepth);
-				}
+				}*/
 				curDepth=1;
 				if(tok.getStr().equals("procedure")){
 					si.setTitle(txt.substring(tok.getAfter().getStart(),tok.getAfter().getEnd()));

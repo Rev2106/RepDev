@@ -128,7 +128,7 @@ public class ProjectManager {
 			file.saveFile(projectFile);
 
 		// TODO: Set to live when ready...
-		if( !RepDevMain.DEVELOPER && Config.getBackupProjectFiles() ) // only dev's can backup project files for now
+		if( !RepDevMain.DEVELOPER || !Config.getBackupProjectFiles() ) // only dev's can backup project files for now
 			return;
 		
 		// Make a backup of the projects file

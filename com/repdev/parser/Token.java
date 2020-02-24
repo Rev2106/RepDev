@@ -282,10 +282,12 @@ public class Token {
 		return tokenType;
 	}
 
+	@SuppressWarnings("unused")
 	private void setInComment(boolean inComment) {
 		this.inComment = inComment;
 	}
 
+	@SuppressWarnings("unused")
 	private boolean isInComment() {
 		return inComment;
 	}

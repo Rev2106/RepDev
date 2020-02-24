@@ -40,7 +40,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.MessageBox;
 
-import com.repdev.parser.RepgenParser;
+//import com.repdev.parser.RepgenParser;
  
 /**
  *  DefineVarShell will display a GUI for the user to select the variable type.

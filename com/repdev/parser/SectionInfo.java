@@ -29,7 +29,7 @@ package com.repdev.parser;
  * @param firstInsertPos The position after the first carriage return following the section
  * @param lastInsertPos The position of the END statement
  */
-public class SectionInfo implements Comparable{
+public class SectionInfo implements Comparable<Object>{
 	private String title;
 	private int pos, firstInsertPos, lastInsertPos;
 

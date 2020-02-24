@@ -25,7 +25,7 @@ package com.repdev;
 //import java.awt.event.KeyEvent;
 //import java.awt.event.KeyListener;
 import java.util.ArrayList;
-import java.util.Collections;
+//import java.util.Collections;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -92,8 +92,8 @@ public class GotoSectionShell {
 
 		Label sectionLabel = new Label(sectionGroup, SWT.NONE);
 		sectionLabel.setText("Goto");
-
-		Collections.sort(secInfo);
+		secInfo.sort(null);
+		//Collections.sort(secInfo);
 		final Combo sectionList = new Combo(sectionGroup, SWT.READ_ONLY);
 		int index=0;
 		for(SectionInfo si : secInfo){
