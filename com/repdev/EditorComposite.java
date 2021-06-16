@@ -1316,37 +1316,39 @@ public class EditorComposite extends Composite implements TabTextEditorView {
 		}
 		// Go through open files which include this file. Search for Variables/Procedures and goto. 
 		for(CTabItem tf : mainfolder.getItems()){
-			EditorComposite ec = ((EditorComposite) tf.getControl());
-			incTokenCache = ec.parser.getIncludeTokenChache();
-			try {  // EB - since I think the keySet is throwing an exception
-				for( String key : incTokenCache.keySet()){
-					if(key.equalsIgnoreCase(file.getName())){
-						
-						if( ec.parser.needRefreshIncludes() )
-							ec.parser.parseIncludes();
-						
-						if(ec.sec.exist(selString)){
-							gotoSection(selString);
-							return;
-						}
-						try {  // EB - since I think the keySet is throwing an exception
-							for( String key2 : incTokenCache.keySet()){
-								for(Token token : incTokenCache.get(key2)){
-									if(matchTokenAndGoto(token, key2, selString))
-										return;
-								}
-							}
-						} catch (java.util.ConcurrentModificationException e) {
-							System.out.println(e);
-						}
-						for(Variable var : ec.parser.getLvars()){
-							if(matchVarAndGoto(var, selString))
+			if(tf.getControl() instanceof EditorComposite) {
+				EditorComposite ec = ((EditorComposite) tf.getControl());
+				incTokenCache = ec.parser.getIncludeTokenChache();
+				try {  // EB - since I think the keySet is throwing an exception
+					for( String key : incTokenCache.keySet()){
+						if(key.equalsIgnoreCase(file.getName())){
+							
+							if( ec.parser.needRefreshIncludes() )
+								ec.parser.parseIncludes();
+							
+							if(ec.sec.exist(selString)){
+								gotoSection(selString);
 								return;
+							}
+							try {  // EB - since I think the keySet is throwing an exception
+								for( String key2 : incTokenCache.keySet()){
+									for(Token token : incTokenCache.get(key2)){
+										if(matchTokenAndGoto(token, key2, selString))
+											return;
+									}
+								}
+							} catch (java.util.ConcurrentModificationException e) {
+								System.out.println(e);
+							}
+							for(Variable var : ec.parser.getLvars()){
+								if(matchVarAndGoto(var, selString))
+									return;
+							}
 						}
 					}
+				} catch (java.util.ConcurrentModificationException e) {
+					System.out.println(e);
 				}
-			} catch (java.util.ConcurrentModificationException e) {
-				System.out.println(e);
 			}
 		}
 	}

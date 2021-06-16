@@ -52,7 +52,7 @@ public class RepDevMain {
 	public static final boolean DEVELOPER = true; //Set this flag to enable saving passwords, this makes it easy for developers to log in and check stuff quickly after making changes
 	public static final int VMAJOR = 1;
 	public static final int VMINOR = 7;
-	public static final int VFIX   = 0;
+	public static final int VFIX   = 1;
 	public static final String VSPECIAL = "EB Version"; // "special" string for release names, beta, etc
 
 	@SuppressWarnings("unused")
