@@ -37,8 +37,8 @@
 
 	<target name="compile" depends="init" description="compile the source ">
 		<!-- Compile the java code from ${src} into ${build} -->
-		<javac srcdir="${src}" destdir="${build32}" classpathref="project-classpath32" includeantruntime="false" />
-		<javac srcdir="${src}" destdir="${build64}" classpathref="project-classpath64" includeantruntime="false" />
+		<javac srcdir="${src}" destdir="${build32}" classpathref="project-classpath32" includeantruntime="false" release="8" />
+		<javac srcdir="${src}" destdir="${build64}" classpathref="project-classpath64" includeantruntime="false" release="8" />
 		<!-- Put everything in ${build} into the MyProject.jar file -->
 		<jar jarfile="${swt}/repdev-win32.jar" basedir="${build32}" manifest="manifest-win32.mf" />
 		<jar jarfile="${swt}/repdev-win64.jar" basedir="${build64}" manifest="manifest-win64.mf" />
